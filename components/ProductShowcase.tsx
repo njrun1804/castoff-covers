@@ -1,26 +1,9 @@
+
 import React, { useRef, useState } from 'react';
 import { COVERS } from '../constants';
 import { CONTENT } from '../content';
 import { FurnitureOption } from '../types';
 import { LazyRender } from './LazyRender';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'model-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        src?: string;
-        poster?: string;
-        alt?: string;
-        ar?: boolean | string;
-        'auto-rotate'?: boolean | string;
-        'camera-controls'?: boolean | string;
-        'shadow-intensity'?: string;
-        style?: React.CSSProperties;
-        onError?: () => void;
-      };
-    }
-  }
-}
 
 const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
   const [loadError, setLoadError] = useState(false);
@@ -37,6 +20,7 @@ const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
         <div className="aspect-[4/5] bg-stone-100 relative">
           {option.modelUrl && !loadError ? (
              <LazyRender className="w-full h-full">
+               {/* @ts-ignore */}
                <model-viewer
                   src={option.modelUrl}
                   poster={option.image}
