@@ -67,3 +67,4 @@ Once deployed, your site will be available at:
 - Ensure `base: '/castoff-covers/'` in `vite.config.ts` matches your repository name
 - Clear browser cache and try again
 
+

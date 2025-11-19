@@ -67,12 +67,12 @@ export const NarrativeSection: React.FC = () => {
                opacity: isStormy ? 0 : 0.5 
              }}
            >
-              <img src="https://images.unsplash.com/photo-1596162954151-cd678fdc42a3?q=80&w=800&auto=format&fit=crop" alt="Ghost" className="w-full h-full object-cover rounded-2xl grayscale mix-blend-multiply" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop" alt="Ghost" className="w-full h-full object-cover rounded-2xl grayscale mix-blend-multiply" loading="lazy" />
            </div>
 
            {/* The Cover (Anchored) */}
            <div className={`relative w-80 h-80 z-20 transition-transform duration-100 ${isStormy ? 'wind-shake' : ''}`}>
-             <img src="https://images.unsplash.com/photo-1503602642458-2321114453ad?q=80&w=800&auto=format&fit=crop" alt="Cover" className={`w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-300 ${isStormy ? 'brightness-75' : ''}`} loading="lazy" />
+             <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" alt="Cover" className={`w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-300 ${isStormy ? 'brightness-75' : ''}`} loading="lazy" />
              <div className={`absolute -bottom-8 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${isStormy ? 'opacity-100' : 'opacity-0'}`}>
                <span className="text-xs font-bold text-white tracking-widest uppercase bg-navy/50 px-3 py-1 rounded-full backdrop-blur-md">{CONTENT.narrative.storm.anchored}</span>
              </div>
@@ -107,12 +107,12 @@ export const NarrativeSection: React.FC = () => {
                 {/* Visuals */}
                 <div className="w-full md:w-2/3 relative aspect-video rounded-3xl overflow-hidden border border-stone-700 shadow-2xl">
                     <div className="absolute inset-0 transition-all duration-300" style={{ filter: `brightness(${1 - (year * 0.05)}) saturate(${1 - (year * 0.05)})` }}>
-                        <img src="https://images.unsplash.com/photo-1621252179027-94459d27d3ee?q=80&w=1200&auto=format&fit=crop" alt="Patio" className="w-full h-full object-cover" loading="lazy" />
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop" alt="Patio" className="w-full h-full object-cover" loading="lazy" />
                         <div className="absolute inset-0 mix-blend-multiply bg-green-900/40" style={{ opacity: (year - 1) / 15 }}></div>
                     </div>
                     {/* Decaying Chair */}
                     <div className="absolute top-1/2 left-1/3 w-64 h-64 -translate-y-1/2" style={{ filter: `sepia(${(year - 1) * 10}%)`, opacity: 1 - ((year - 1) * 0.05) }}>
-                        <img src="https://images.unsplash.com/photo-1596162954151-cd678fdc42a3?q=80&w=800&auto=format&fit=crop" alt="Chair" className="w-full h-full object-cover rounded-xl opacity-60" loading="lazy" />
+                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop" alt="Chair" className="w-full h-full object-cover rounded-xl opacity-60" loading="lazy" />
                     </div>
                     {/* Pristine Cover */}
                     <div className="absolute top-1/2 right-1/4 w-64 h-64 -translate-y-1/2 shadow-2xl">

@@ -28,8 +28,10 @@ export const COVERS: CoverProduct[] = [
     type: CoverType.CHAIR,
     name: "The Solitary Sentry",
     description: "A cover designed for deep introspection and wide armrests.",
-    coverImage: "https://images.unsplash.com/photo-1503602642458-2321114453ad?q=80&w=800&auto=format&fit=crop",
-    wireframeImage: "https://images.unsplash.com/photo-1596162954151-cd678fdc42a3?q=80&w=800&auto=format&fit=crop",
+    // Replaced with working "Minimalist Bench" image for cover texture
+    coverImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop",
+    // Replaced with working "Teak Lounger" for ghost
+    wireframeImage: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop",
     furnitureOptions: [
       { 
         id: 'f1-a', 
@@ -65,7 +67,9 @@ export const COVERS: CoverProduct[] = [
     type: CoverType.SOFA,
     name: "The Deep Seating Void",
     description: "Holds the space for conversations that haven't happened yet.",
-    coverImage: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800&auto=format&fit=crop", 
+    // Replaced with working "Sofa" image
+    coverImage: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop", 
+    // Replaced with working "Sofa" image
     wireframeImage: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop",
     furnitureOptions: [
       { 
@@ -102,8 +106,10 @@ export const COVERS: CoverProduct[] = [
     type: CoverType.TABLE,
     name: "The Feast Preserver",
     description: "Keeps the rain off a dinner party that exists only in your mind.",
-    coverImage: "https://images.unsplash.com/photo-1530018607912-e78348e1fc84?q=80&w=800&auto=format&fit=crop", 
-    wireframeImage: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=800&auto=format&fit=crop",
+    // Replaced with working "Glass Modern" image
+    coverImage: "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=800&auto=format&fit=crop", 
+    // Replaced with working "Stone Round" image
+    wireframeImage: "https://images.unsplash.com/photo-1611486212557-88be5ff6f941?q=80&w=800&auto=format&fit=crop",
     furnitureOptions: [
       { 
         id: 'f3-a', 
