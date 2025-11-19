@@ -1,5 +1,8 @@
 {
   "name": "Castaway Frames",
-  "description": "A surreal, high-end reverse e-commerce site selling furniture to fit your existing covers.",
-  "requestFramePermissions": []
+  "description": "High-end reverse e-commerce site featuring AI Vibe Analysis, Mobile LiDAR AR, and Gemini 3.0 integration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
 }

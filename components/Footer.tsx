@@ -1,51 +1,44 @@
+
 import React from 'react';
+import { CONTENT } from '../content';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-navy text-white py-16 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 bg-white text-navy flex items-center justify-center rounded-full">
                 <i className="fa-solid fa-ghost text-sm"></i>
                 </div>
-                <span className="font-bold text-xl tracking-tight">CASTAWAY FRAMES</span>
+                <span className="font-bold text-xl tracking-tight">{CONTENT.footer.brand}</span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed">
-              We believe the most sustainable furniture is the kind you haven't bought yet. But when you inevitably do, make sure it fits our covers.
+              {CONTENT.footer.mission}
             </p>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6 text-sand">Shop</h4>
+            <h4 className="font-bold text-lg mb-6 text-sand">{CONTENT.footer.shop}</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Chairs</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Sofas</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Tables</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">The Invisible Collection</a></li>
+              <li><a href="#" className="hover:text-white">Chairs</a></li>
+              <li><a href="#" className="hover:text-white">Sofas</a></li>
+              <li><a href="#" className="hover:text-white">Tables</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6 text-sand">Legal</h4>
+            <h4 className="font-bold text-lg mb-6 text-sand">{CONTENT.footer.legal}</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Non-Existence</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Return Policy (Good Luck)</a></li>
+              <li><a href="#" className="hover:text-white">Privacy</a></li>
+              <li><a href="#" className="hover:text-white">Terms</a></li>
             </ul>
           </div>
-
         </div>
         
         <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs">
-          <p>&copy; {new Date().getFullYear()} Castaway Frames. A Sister Site to Castaway Covers.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <i className="fa-brands fa-instagram hover:text-white cursor-pointer transition-colors"></i>
-            <i className="fa-brands fa-twitter hover:text-white cursor-pointer transition-colors"></i>
-            <i className="fa-brands fa-pinterest hover:text-white cursor-pointer transition-colors"></i>
-          </div>
+          <p>&copy; {new Date().getFullYear()} {CONTENT.footer.copyright}</p>
         </div>
       </div>
     </footer>
