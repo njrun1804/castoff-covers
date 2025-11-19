@@ -1,19 +1,31 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { GhostCover } from './GhostCover';
 import { COVERS } from '../constants';
-import { useMouseVelocity } from '../hooks/usePhysics';
+import { usePhysicsEngine } from '../hooks/usePhysics';
 import { CONTENT } from '../content';
 
 export const Hero: React.FC = () => {
-  const velocity = useMouseVelocity();
+  // Create refs for the elements we want to animate with physics
+  const bgTextRef = useRef<HTMLDivElement>(null);
+  const cover1Ref = useRef<HTMLDivElement>(null);
+  const cover2Ref = useRef<HTMLDivElement>(null);
+  const cover3Ref = useRef<HTMLDivElement>(null);
+
+  // Register refs with the physics engine
+  // This hook will update the DOM directly, preventing Re-Renders
+  usePhysicsEngine([bgTextRef, cover1Ref, cover2Ref, cover3Ref]);
 
   return (
     <section className="relative min-h-screen pt-24 flex flex-col items-center justify-center overflow-hidden perspective-1000">
       
       <div 
+        ref={bgTextRef}
         className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-[0.03]"
-        style={{ transform: `translate(${velocity.x * -0.5}px, ${velocity.y * -0.5}px)` }}
+        style={{ 
+          // The engine updates --sway-x/y, we use them here
+          transform: `translate(calc(var(--sway-x, 0deg) * -2px), calc(var(--sway-y, 0deg) * -2px))` 
+        }}
       >
         <h1 className="text-[15rem] font-bold text-navy rotate-90 md:rotate-0 whitespace-nowrap">
           {CONTENT.hero.missingPieces}
@@ -35,11 +47,11 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 w-full max-w-6xl px-6">
         <div className="flex flex-col md:flex-row gap-16 md:gap-8 items-center justify-center">
-          <GhostCover cover={COVERS[0]} animationDelay="animate-float-slow" isWindy={false} sway={velocity} />
+          <GhostCover ref={cover1Ref} cover={COVERS[0]} animationDelay="animate-float-slow" isWindy={false} />
           <div className="md:-mt-16">
-            <GhostCover cover={COVERS[1]} animationDelay="animate-float-medium" isWindy={false} sway={velocity} />
+            <GhostCover ref={cover2Ref} cover={COVERS[1]} animationDelay="animate-float-medium" isWindy={false} />
           </div>
-          <GhostCover cover={COVERS[2]} animationDelay="animate-float-fast" isWindy={false} sway={velocity} />
+          <GhostCover ref={cover3Ref} cover={COVERS[2]} animationDelay="animate-float-fast" isWindy={false} />
         </div>
       </div>
     </section>

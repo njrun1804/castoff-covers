@@ -15,7 +15,8 @@ declare global {
         'auto-rotate'?: boolean | string;
         'camera-controls'?: boolean | string;
         'shadow-intensity'?: string;
-        [key: string]: any;
+        style?: React.CSSProperties;
+        onError?: () => void;
       };
     }
   }
@@ -41,8 +42,8 @@ const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
                   poster={option.image}
                   alt={option.name}
                   ar={true}
-                  auto-rotate={isHovered}
-                  camera-controls={true}
+                  auto-rotate={isHovered ? "true" : undefined}
+                  camera-controls="true"
                   shadow-intensity="1"
                   style={{ width: '100%', height: '100%' }}
                   onError={() => setLoadError(true)}

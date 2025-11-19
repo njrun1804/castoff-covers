@@ -1,25 +1,36 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
- * Tracks mouse velocity with a decay factor to simulate "air drag".
- * Optimized for performance and accessibility.
+ * High-Performance Physics Engine.
+ * 
+ * OPTIMIZATION:
+ * Uses Direct DOM Manipulation instead of React State.
+ * Updates CSS Custom Properties (--sway-x, --sway-y) directly on the passed refs.
+ * This runs outside the React Render Cycle (0 re-renders per frame).
  */
-export const useMouseVelocity = () => {
-  const [velocity, setVelocity] = useState({ x: 0, y: 0 });
+export const usePhysicsEngine = (refs: React.RefObject<HTMLElement>[]) => {
   const lastMousePos = useRef({ x: 0, y: 0 });
+  const velocity = useRef({ x: 0, y: 0 });
   const requestRef = useRef<number>(0);
 
   useEffect(() => {
     // Accessibility Check
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) return;
-
+    
     const handleMouseMove = (e: MouseEvent) => {
-      const vx = Math.max(-50, Math.min(50, e.clientX - lastMousePos.current.x));
-      const vy = Math.max(-50, Math.min(50, e.clientY - lastMousePos.current.y));
+      if (mediaQuery.matches) return;
       
-      setVelocity({ x: vx, y: vy });
+      // Calculate raw velocity
+      const vx = e.clientX - lastMousePos.current.x;
+      const vy = e.clientY - lastMousePos.current.y;
+      
+      // Clamp velocity for sanity
+      velocity.current = {
+        x: Math.max(-50, Math.min(50, vx)),
+        y: Math.max(-50, Math.min(50, vy))
+      };
+      
       lastMousePos.current = { x: e.clientX, y: e.clientY };
     };
 
@@ -28,20 +39,29 @@ export const useMouseVelocity = () => {
   }, []);
 
   useEffect(() => {
-    // Accessibility Check
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) return;
 
     const animate = () => {
-      setVelocity(prev => {
-        // Performance: Stop rendering if almost static
-        if (Math.abs(prev.x) < 0.1 && Math.abs(prev.y) < 0.1) return { x: 0, y: 0 };
-        
-        return {
-          x: prev.x * 0.9, // Decay
-          y: prev.y * 0.9
-        };
-      });
+      if (mediaQuery.matches) return;
+
+      // Decay physics (Air Drag)
+      velocity.current.x *= 0.92;
+      velocity.current.y *= 0.92;
+
+      // Tiny threshold to stop calc when static
+      if (Math.abs(velocity.current.x) > 0.01 || Math.abs(velocity.current.y) > 0.01) {
+        const xVal = velocity.current.x * 0.5; // Dampening
+        const yVal = velocity.current.y * -0.5;
+
+        // DIRECT DOM UPDATE - No React Re-renders
+        refs.forEach(ref => {
+          if (ref.current) {
+            ref.current.style.setProperty('--sway-x', `${xVal}deg`);
+            ref.current.style.setProperty('--sway-y', `${yVal}deg`);
+          }
+        });
+      }
+
       requestRef.current = requestAnimationFrame(animate);
     };
     
@@ -49,7 +69,5 @@ export const useMouseVelocity = () => {
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, []);
-
-  return velocity;
+  }, [refs]);
 };

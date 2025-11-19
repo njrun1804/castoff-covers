@@ -1,4 +1,3 @@
-
 export const CONTENT = {
   hero: {
     badge: "Reverse E-Commerce",
@@ -64,5 +63,10 @@ export const CONTENT = {
     shop: "Shop",
     legal: "Legal",
     copyright: "Castaway Frames. A Sister Site to Castaway Covers."
+  },
+  ghostCover: {
+    xrayActive: "X-Ray Active",
+    holdToInspect: "HOLD TO INSPECT WEAVE",
+    zoomLabel: "Hydro-Weave™ Zoom"
   }
 };
