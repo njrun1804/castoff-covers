@@ -90,7 +90,7 @@ export const GhostCover = forwardRef<HTMLDivElement, GhostCoverProps>(({ cover, 
          <img 
           src={cover.wireframeImage} 
           alt="Furniture Ghost" 
-          className="w-full h-full object-cover rounded-2xl border-2 border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+          className="w-full h-full object-cover rounded-2xl border-2 border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.3)] invert hue-rotate-180 contrast-125"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-navy/20 mix-blend-multiply rounded-2xl"></div>

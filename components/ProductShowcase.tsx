@@ -11,7 +11,7 @@ const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
 
   return (
     <div 
-      className="group relative h-[400px] perspective-1000"
+      className="group relative min-h-[500px] h-auto perspective-1000"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -43,12 +43,12 @@ const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
           </div>
         </div>
 
-        <div className="p-4 bg-white flex-grow flex flex-col justify-between z-10 relative">
+        <div className="p-4 bg-white flex-grow flex flex-col justify-between z-10 relative min-h-[160px]">
            <div>
               <p className="text-xs text-slate-400 uppercase mb-1">{option.material}</p>
-              <h4 className="font-bold text-navy">{option.name}</h4>
+              <h4 className="font-bold text-navy text-lg leading-tight">{option.name}</h4>
            </div>
-           <button className="w-full mt-4 border border-navy text-navy rounded-lg py-2 text-xs font-bold hover:bg-navy hover:text-white transition-colors">
+           <button className="w-full mt-4 border-2 border-navy text-navy rounded-lg py-3 text-sm font-bold hover:bg-navy hover:text-white transition-colors uppercase tracking-wide">
              {CONTENT.products.cta}
            </button>
         </div>

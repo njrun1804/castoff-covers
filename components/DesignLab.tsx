@@ -195,7 +195,7 @@ export const DesignLab: React.FC = () => {
                <div className="relative w-64 h-64 mb-12">
                   <div className="absolute inset-0 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-2xl flex items-center justify-center overflow-hidden">
                      <img 
-                       src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800&auto=format&fit=crop" 
+                       src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop" 
                        alt="Chameleon" 
                        className="w-3/4 h-3/4 object-contain transition-all duration-700"
                        style={{ filter: getCoverFilter() }}

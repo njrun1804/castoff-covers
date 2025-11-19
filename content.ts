@@ -11,7 +11,7 @@ export const CONTENT = {
     subtitle: "Where imagination meets the elements.",
     storm: {
       title: "Survive the Elements",
-      description: "Our patented Weighted Hem Technology ensures the cover stays. Even if the furniture itself decides to leave.",
+      description: "Our patented Weighted Hem Technology ensures the cover stays. Even in hurricane-force winds.",
       anchored: "Anchored"
     },
     timeMachine: {
@@ -36,7 +36,7 @@ export const CONTENT = {
     title: "Personalization Studio",
     subtitle: "Tools to audit your void and perfect your aesthetic.",
     tabs: {
-      ai: "Vibe Auditor (AI)",
+      ai: "Vibe Auditor",
       color: "Chameleon Effect"
     },
     ai: {

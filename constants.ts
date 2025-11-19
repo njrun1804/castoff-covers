@@ -56,7 +56,8 @@ export const COVERS: CoverProduct[] = [
         name: "Aluminum Throne", 
         price: 1200, 
         material: "Powder-coated Aluminum", 
-        image: "https://images.unsplash.com/photo-1604145559206-e3bce0040e95?q=80&w=800&auto=format&fit=crop",
+        // Replaced with safe Teak Lounger image to ensure visibility
+        image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800&auto=format&fit=crop",
         modelUrl: CHAIR_MODEL_FABRIC,
         dimensions: { width: "34\"", height: "40\"", depth: "34\"" }
       }
