@@ -35,7 +35,7 @@ const TiltCard: React.FC<{ option: FurnitureOption }> = ({ option }) => {
                </model-viewer>
              </LazyRender>
           ) : (
-            <img src={option.image} alt={option.name} className="w-full h-full object-cover" />
+            <img src={option.image} alt={option.name} className="w-full h-full object-cover" loading="lazy" />
           )}
           
           <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-bold shadow-sm">
@@ -76,7 +76,7 @@ export const ProductShowcase: React.FC = () => {
               
               <div className="w-full md:w-1/3 sticky top-32 p-6 bg-sand/50 rounded-3xl border border-white/50 shadow-lg backdrop-blur-sm">
                  <div className="aspect-square rounded-2xl overflow-hidden mb-6">
-                   <img src={cover.coverImage} alt={cover.name} className="w-full h-full object-cover" />
+                   <img src={cover.coverImage} alt={cover.name} className="w-full h-full object-cover" loading="lazy" />
                  </div>
                  <h3 className="text-2xl font-bold mb-2">{cover.name}</h3>
                  <p className="text-slate-600 italic text-sm">{cover.description}</p>

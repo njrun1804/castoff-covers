@@ -91,6 +91,7 @@ export const GhostCover = forwardRef<HTMLDivElement, GhostCoverProps>(({ cover, 
           src={cover.wireframeImage} 
           alt="Furniture Ghost" 
           className="w-full h-full object-cover rounded-2xl border-2 border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-navy/20 mix-blend-multiply rounded-2xl"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-30"></div>
@@ -115,6 +116,7 @@ export const GhostCover = forwardRef<HTMLDivElement, GhostCoverProps>(({ cover, 
           src={cover.coverImage} 
           alt={cover.name} 
           className={`w-full h-full object-cover transition-transform duration-700 ${isHovered && !isZoomed ? 'scale-110' : 'scale-100 grayscale-[30%]'}`}
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-stone-200/10 mix-blend-overlay"></div>
         <div className={`absolute inset-0 transition-opacity duration-700 ${isHovered ? 'opacity-30' : 'opacity-100'}`}>
